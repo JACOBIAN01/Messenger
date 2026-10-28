@@ -5,7 +5,10 @@ const app = express();
 app.use(cors());         // allow requests from any app
 app.use(express.json()); // read JSON bodies
 
-const messages = []; // our "database": a plain array, cleared on restart
+// our "database": a plain array, reset on restart (starts with a welcome message)
+const messages = [
+  { id: '0', user: 'Subhadeep', text: 'Welcome to the class! 👋 Say hi!' },
+];
 
 // Get all messages
 app.get('/messages', (req, res) => {
